@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Station Navigation</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        #station-input, #container { display: none; }
+        #station-input { 
+            background-color: blue; 
+            color: white; 
+            text-align: center; 
+            padding: 20px; 
+            background-image: url('train-background.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+        }
+        #emergency-btn { 
+            display: block; 
+            margin: 20px auto; 
+            background-color: red; 
+            color: white; 
+            padding: 10px; 
+            border: none; 
+            cursor: pointer; 
+        }
+        #container { 
+            position: relative; 
+            background-image: url('train-background.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+        }
+        #directions-panel { 
+            position: absolute; 
+            bottom: 10px; 
+            left: 10px; 
+            background-color: rgba(0,0,0,0.7); 
+            color: white; 
+            padding: 10px; 
+            border-radius: 5px; 
+        }
+        .emergency-contact { 
+            display: none; 
+            position: absolute; 
+            top: 10px; 
+            right: 10px; 
+            background-color: rgba(255,255,255,0.8); 
+            padding: 10px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+        }
+        .emergency-contact p { margin: 0; }
+        .emergency-contact h4 { margin: 0 0 10px 0; }
+    </style>
+</head>
+<body>
+    <div id="station-input">
+        <h1>Enter the station name</h1>
+        <input type="text" id="station-name" placeholder="Station Name">
+        <button onclick="submitStationName()">Submit</button>
+        <button id="emergency-btn" onclick="toggleEmergencyContacts()">Emergency Contacts for Women</button>
+    </div>
+    <div id="container">
+        <div id="directions-panel">
+            <p id="directions-text">Click on a location to get directions.</p>
+        </div>
+        <div class="emergency-contact" id="emergency-contacts">
+            <h4>Emergency Contacts</h4>
+            <p id="railway-police">Railway Police: 123-456-7890</p>
+            <p id="cleaner">Cleaner: 098-765-4321</p>
+            <p id="station-maintenance">Station Maintenance: 567-890-1234</p>
+            <p id="kuli">Kuli: 234-567-8901</p>
+            <button id="women-emergency-btn" onclick="callEmergency()">Call Emergency</button>
+        </div>
+        <div id="platform-buttons">
+            <button onclick="showPlatform(1)">Platform 1</button>
+            <button onclick="showPlatform(2)">Platform 2</button>
+            <button onclick="showPlatform(3)">Platform 3</button>
+            <button onclick="showPlatform(4)">Platform 4</button>
+            <button onclick="showPlatform(5)">Platform 5</button>
+        </div>
+        <div id="subsection-buttons">
+            <button id="cloakroom-btn" onclick="navigateTo('cloakroom')">Cloakroom</button>
+            <button id="waiting-hall-btn" onclick="navigateTo('waiting-hall')">Waiting Hall</button>
+            <button id="food-court-btn" onclick="navigateTo('food-court')">Food Court</button>
+            <button id="washroom-btn" onclick="navigateTo('washroom')">Washroom</button>
+            <button id="entrance-btn" onclick="navigateTo('entrance')">Entrance</button>
+            <button id="exit-btn" onclick="navigateTo('exit')">Exit</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
